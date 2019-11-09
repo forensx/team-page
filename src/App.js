@@ -5,6 +5,7 @@ import DeckGL from '@deck.gl/react';
 import { ArcLayer } from '@deck.gl/layers';
 import { StaticMap } from 'react-map-gl';
 import TeamPageExceptImage from "./team_page_excerpt_image.svg";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Set your mapbox access token here
 const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoicGFudDIwMDIiLCJhIjoiY2prenlwb2ZtMHlnMjNxbW1ld3VxYWZ4cCJ9.rOb8DhCzsysBIw69MxyWKg';
