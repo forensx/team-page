@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 
+.navbar_comp {
+  position: relative;
+}
+
 .siteIntro {
   z-index: 1000;
   position: fixed;
@@ -60,6 +64,10 @@
   box-shadow: 0 14px 14px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
+.scrollRegion2 {
+  height: 80vh;
+}
+
 .region2_excerpts {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -67,6 +75,7 @@
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   margin: 10%;
+  margin-top: 17%;
   font-size: 1.3em;
   font-style: normal;
   font-weight: normal;
@@ -84,4 +93,22 @@
 }
 .excerptImage {
   grid-area: 1 / 5 / 9 / 11;
+}
+
+.scrollRegion3 {
+  height: 80vh;
+}
+
+.region3_excerpts {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin: 10%;
+  margin-top: 17%;
+  font-size: 1.3em;
+  font-style: normal;
+  font-weight: normal;
+  font-family: "Open Sans", sans-serif;
 }

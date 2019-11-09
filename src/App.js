@@ -32,22 +32,23 @@ export class App extends Component {
     this.state = {
       scrollPosition: 1
     }
-    this.scrollRegion1Ref = React.createRef()
+    this.scrollRegion2Ref = React.createRef()
   }
 
   handleOnClick = (event) => {
     //.current is verification that your element has rendered
-    if (this.scrollRegion1Ref.current) {
-      this.scrollRegion1Ref.current.scrollIntoView({
+    if (this.scrollRegion2Ref.current) {
+      this.scrollRegion2Ref.current.scrollIntoView({
         behavior: "smooth",
         block: "nearest"
       })
     }
   }
+
   render() {
     return (
       <div className="App">
-        <NavbarOverlay></NavbarOverlay>
+        <NavbarOverlay className="navbar_comp" />
         <div id className="scrollRegion1">
           <div className="siteIntro">
             <div className="introHeader">
@@ -69,10 +70,26 @@ export class App extends Component {
             </DeckGL>
           </div>
         </div>
-        <div className="scrollRegion2" ref={this.scrollRegion1Ref}>
+        <div className="scrollRegion2" ref={this.scrollRegion2Ref}>
           <div className="region2_excerpts">
             <div className="excerptHeader">
-              Don’t let your company drown in your data - sail through it.
+              Don’t let your company drown in your data - sail through it. SCROLL2
+          </div>
+            <div className="excerptDescription">
+              We help you make data-driven decisions to accelerate production and increase profits.
+          </div>
+            <div className="excerptCall">
+              Let us assist with data implementation, analysis, and modeling for your company with a money back policy.
+          </div>
+            <div className="excerptImage">
+              <img src={TeamPageExceptImage} alt=""></img>
+            </div>
+          </div>
+        </div>
+        <div className="scrollRegion3" ref={this.scrollRegion3Ref}>
+          <div className="region3_excerpts">
+            <div className="excerptHeader">
+              Don’t let your company drown in your data - sail through it. SCROLL3
           </div>
             <div className="excerptDescription">
               We help you make data-driven decisions to accelerate production and increase profits.
