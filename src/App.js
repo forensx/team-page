@@ -32,10 +32,6 @@ function App() {
 
   return (
     <div className="App">
-<<<<<<< HEAD
-<p>Your mom</p>
-    </div>
-=======
       <div id className="scrollRegion1">
         <div className="siteIntro">
           <div className="introHeader">
@@ -74,7 +70,6 @@ function App() {
         </div>
       </div>
     </div >
->>>>>>> 68221afce2098fd6bb8bcb29c06ab4d42456f426
   );
 }
 
