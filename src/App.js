@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import NavbarOverlay from "./Components/NavbarOverlay";
 import DeckGL from '@deck.gl/react';
@@ -22,55 +22,72 @@ const initialViewState = {
 
 // Data to be used by the LineLayer
 const data = [{ sourcePosition: [-122.41669, 37.7853], targetPosition: [-122.41669, 37.781] }];
+const layers = [
+  new ArcLayer({ id: 'arc-layer', data })
+];
 
+export class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      scrollPosition: 1
+    }
+    this.scrollRegion1Ref = React.createRef()
+  }
 
-function App() {
-
-  const layers = [
-    new ArcLayer({ id: 'arc-layer', data })
-  ];
-
-  return (
-    <div className="App">
-      <div id className="scrollRegion1">
-        <div className="siteIntro">
-          <div className="introHeader">
-            Your <div className="inlineHeaderEmphasis">personal data</div> forensics
-          </div>
-          <div className="introCaption">
-            Utilize the power of data analytics to drive your business’s profits up and operating costs down.
+  handleOnClick = (event) => {
+    //.current is verification that your element has rendered
+    if (this.scrollRegion1Ref.current) {
+      this.scrollRegion1Ref.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      })
+    }
+  }
+  render() {
+    return (
+      <div className="App">
+        <NavbarOverlay></NavbarOverlay>
+        <div id className="scrollRegion1">
+          <div className="siteIntro">
+            <div className="introHeader">
+              Your <div className="inlineHeaderEmphasis">personal data</div> forensics
+              </div>
+            <div className="introCaption">
+              Utilize the power of data analytics to drive your business’s profits up and operating costs down.
             </div>
-          <button className="transitionButton">
-            Learn more
+            <button onClick={this.handleOnClick} className="transitionButton">
+              Learn more
           </button>
-        </div>
-        <div className = "deckGL_demo">
-          <DeckGL
-          initialViewState={initialViewState}
-          layers={layers}
-          >
-            <StaticMap mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN} />
-          </DeckGL>
-        </div>
-      </div>
-      <div className = "scrollRegion2">
-        <div className = "region2_excerpts">
-          <div className = "excerptHeader">
-            Don’t let your company drown in your data - sail through it.
           </div>
-          <div className = "excerptDescription">
-            We help you make data-driven decisions to accelerate production and increase profits.
-          </div>
-          <div className = "excerptCall">
-            Let us assist with data implementation, analysis, and modeling for your company with a money back policy.
-          </div>
-          <div className = "excerptImage">
-            <img src = {TeamPageExceptImage} alt = ""></img>
+          <div className="deckGL_demo">
+            <DeckGL
+              initialViewState={initialViewState}
+              layers={layers}
+            >
+              <StaticMap mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN} />
+            </DeckGL>
           </div>
         </div>
-      </div>
-    </div >
-  );
+        <div className="scrollRegion2" ref={this.scrollRegion1Ref}>
+          <div className="region2_excerpts">
+            <div className="excerptHeader">
+              Don’t let your company drown in your data - sail through it.
+          </div>
+            <div className="excerptDescription">
+              We help you make data-driven decisions to accelerate production and increase profits.
+          </div>
+            <div className="excerptCall">
+              Let us assist with data implementation, analysis, and modeling for your company with a money back policy.
+          </div>
+            <div className="excerptImage">
+              <img src={TeamPageExceptImage} alt=""></img>
+            </div>
+          </div>
+        </div>
+      </div >
+    );
+  }
 }
 
 export default App;
