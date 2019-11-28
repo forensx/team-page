@@ -1,16 +1,15 @@
-import React from 'react'
-import { Button, Navbar, Form, FormControl, Nav } from 'react-bootstrap'
-import {ReactComponent as Logo} from './ForensX.svg'
+import React from 'react';
+import { Navbar, Nav } from 'react-bootstrap';
+import { ReactComponent as Logo } from '../ForensX.svg'
+
 
 export default function NavbarOverlay() {
     return (
     <Navbar bg="dark" variant="dark">
     <Navbar.Brand href="#home">
-      <img
-        src= {Logo}
-        width = "30"
-        height = "30"
-      />
+      <div>
+        { Logo }
+      </div>
     </Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link href="#home">About</Nav.Link>
